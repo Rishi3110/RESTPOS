@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple POS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Simple POS</h1>
+    <nav>
+      <button class="tab active" data-tab="orders">Orders</button>
+      <button class="tab" data-tab="menu">Menu</button>
+      <button class="tab" data-tab="reports">Reports</button>
+    </nav>
+  </header>
+
+  <!-- ORDERS TAB -->
+  <section id="orders" class="page">
+    <div class="toolbar">
+      <button id="newOrderBtn" class="primary">+ New Order</button>
+    </div>
+
+    <div class="orders-layout">
+      <!-- Open orders list -->
+      <div class="order-list" id="orderList"></div>
+
+      <!-- Selected order -->
+      <div class="order-detail" id="orderDetail">
+        <p class="muted">Create or select an order.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU TAB -->
+  <section id="menu" class="page hidden">
+    <div class="card">
+      <h2>Add Category</h2>
+      <form id="catForm" class="row">
+        <input id="catName" placeholder="Category name" required>
+        <button class="primary">Add</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Add Item</h2>
+      <form id="itemForm" class="row">
+        <input id="itemName" placeholder="Item name" required>
+        <input id="itemPrice" type="number" min="0" step="0.01" placeholder="Price" required>
+        <select id="itemCat" required></select>
+        <button class="primary">Add</button>
+      </form>
+    </div>
+
+    <div id="menuList"></div>
+  </section>
+
+  <!-- REPORTS TAB -->
+  <section id="reports" class="page hidden">
+    <div class="stats" id="stats"></div>
+
+    <div class="card">
+      <h2>Items Sold</h2>
+      <div id="itemsSold"></div>
+    </div>
+
+    <div class="card">
+      <div class="cat-head">
+        <h2>Order Log</h2>
+        <button class="small danger" id="clearHistoryBtn">Clear history</button>
+      </div>
+      <div id="orderLog"></div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
